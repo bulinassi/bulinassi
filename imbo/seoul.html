@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[임장] 수도권 입지등급 계산기</title>
+</head>
+<body>
+    <div style="background: sandybrown; padding: 0 20px; margin: 10px 0;border-radius: 10px; color: #fff; display:flex; flex-direction: row; justify-content:space-between; justify-items:center;">
+        <h2 style="width:70%; text-align: left;">수도권 입지등급 계산기</h2>
+        <a style="width:30%; text-align: right; margin: auto 0;" href="https://bulinassi.infoallzip.com/">홈으로 가기</a>
+    </div>
+    <div style="margin: 0 20px;">
+    <div>
+        <table style="width: 100%;">
+            <colgroup>
+                <col style="width: 10%;">
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th rowspan="2">수도권</th>
+                            <th>직장</th>
+                            <th>교통</th>
+                            <th>학군</th>
+                            <th>환경</th>
+                            <th colspan="4">공급</th>
+                        </tr>
+                        <tr>
+                            <th>종사자수</th>
+                            <th>강남, 부도심 출퇴근시간</th>
+                            <th>중학교학업성취도</th>
+                            <th>백화점, 대형마트 갯수</th>
+                            <th>2025년</th>
+                            <th>2026년</th>
+                            <th>2027년</th>
+                            <th>2028년</th>
+                        </tr>
+                        <tr>
+                            <th class="sb-th" rowspan="4"><input type="text" style="width: 80px;">구</th>
+                            <td rowspan="2" id="grade01">-</td>
+                            <td rowspan="2" id="grade02">-</td>
+                            <td rowspan="2" id="grade03">-</td>
+                            <td rowspan="2" id="grade04">-</td>
+                            <td colspan="4" id="grade09">-</td>
+                        </tr>
+                        <tr>
+                            <td id="grade05">-</td>
+                            <td id="grade06">-</td>
+                            <td id="grade07">-</td>
+                            <td id="grade08">-</td>
+                        </tr>
+                        <tr>                            
+                            <td><input id="seoulFactor01" type="number" style="width: 80px;">만명</td>
+                            <td>
+                                강남 : <input id="seoulFactor02-01" type="number" min="0" style="width: 30px;">분<br>
+                                부도심 : <input id="seoulFactor02-02" type="number" min="0" style="width: 30px;">분
+                            </td>
+                            <td>
+                                95%이상 : <input id="seoulFactor03-01" type="number" min="0" style="width: 30px;">개<br>
+                                90%이상 : <input id="seoulFactor03-02" type="number" min="0" style="width: 30px;">개<br>
+                                85%이상 : <input id="seoulFactor03-03" type="number" min="0" style="width: 30px;">개<br>
+                            </td>
+                            <td>
+                                백화점 갯수 : <input id="seoulFactor04-01" type="number" min="0" style="width: 30px;">개<br>
+                                대형마트 갯수 : <input id="seoulFactor04-02" type="number" min="0" style="width: 30px;">개<br>
+                            </td>
+                            <td>
+                                수요량 : <input id="seoulFactor05-01" type="number" min="0" style="width: 80px;">세대<br>
+                                공급량 : <input id="seoulFactor05-02" type="number" min="0" style="width: 80px;">세대<br>
+                            </td>
+                            <td>
+                                수요량 : <input id="seoulFactor06-01" type="number" min="0" style="width: 80px;">세대<br>
+                                공급량 : <input id="seoulFactor06-02" type="number" min="0" style="width: 80px;">세대<br>
+                            </td>
+                            <td>
+                                수요량 : <input id="seoulFactor07-01" type="number" min="0" style="width: 80px;">세대<br>
+                                공급량 : <input id="seoulFactor07-02" type="number" min="0" style="width: 80px;">세대<br>
+                            </td>
+                            <td>
+                                수요량 : <input id="seoulFactor08-01" type="number" min="0" style="width: 80px;">세대<br>
+                                공급량 : <input id="seoulFactor08-02" type="number" min="0" style="width: 80px;">세대<br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>
+    <hr>
+    <div>
+        <h2>사용방법</h2>
+        <ul>
+            <li>제일 왼쪽에 임장지를 적어주세요</li>
+            <li>직장 : 임장지의 종사자수를 적어주세요</li>
+            <li>교통 : 임장지의 강남과 부도심의 출퇴근 시간을 적어주세요</li>
+            <li>환경 : 임장지의 백화점, 대형마트 갯수를 적어주세요</li>
+            <li>학군 : 임장지의 중학교 학업성취도를 적어주세요</li>
+            <li>공급 : 임장지의 수요량과 공급량을 적어주세요</li>
+            <li>등급이 알아서 매겨집니다~</li>
+            <li>메모를 더 적어주시고 캡처해서 임보에 넣으면 끝!</li>
+        </ul>
+    </div>
+    <hr>
+    <div>
+        <h2>예시</h2>
+        <div></div>
+    </div>
+    </div>
+    <div style="text-align: center; padding: 10px;border-top: solid 2px #000; font-weight: bold;">
+        made by 부린아씨
+    </div>
+
+    <script>
+        //td 내용과 클래스 적용
+        function applyGrade(targetElement, grade) {
+            targetElement.textContent = grade; //td 안 내용 변경
+            targetElement.className = ""; //기존 클래스 제거
+            targetElement.classList.add(`grade-${grade}`); //새 클래스 추가
+        }
+
+        //직장 입지등급 (grade01)
+        let jobInput = document.getElementById("seoulFactor01");
+        let jobGrade = document.getElementById("grade01");
+
+        jobInput.addEventListener("input", () => {
+            const worker = Number(jobInput.value || 0);
+            let job = "";
+
+            if (worker >= 30) {
+                job = "S";
+            } else if (worker >= 20) {
+                job = "A";
+            } else if (worker >= 10) {
+                job = "B";
+            } else {
+                job = "C";
+            }
+
+            applyGrade(jobGrade, job);
+        });
+
+        //교통 입지등급 (grade02)
+        let trafficInput01 = document.getElementById("seoulFactor02-01");
+        let trafficInput02 = document.getElementById("seoulFactor02-02");
+        let trafficGrade = document.getElementById("grade02");
+
+        function updateTrafficGrade() {
+            const main = Number(trafficInput01.value);
+            const sub = Number(trafficInput02.value);
+            let traffic = "";
+
+            if (!trafficInput01.value || !trafficInput02.value) {
+                traffic = "C";
+            } else if (main <= 30) {
+                traffic = "S";
+            } else if (main <= 60 || sub <= 30) {
+                traffic = "A";
+            } else if (sub <= 60) {
+                traffic = "B";
+            } else {
+                traffic = "C";
+            }
+
+            applyGrade(trafficGrade, traffic);
+        }
+
+        trafficInput01.addEventListener("input", updateTrafficGrade);
+        trafficInput02.addEventListener("input", updateTrafficGrade);
+
+        //학군 입지등급 (grade03)
+        let schoolInput01 = document.getElementById("seoulFactor03-01");
+        let schoolInput02 = document.getElementById("seoulFactor03-02");
+        let schoolInput03 = document.getElementById("seoulFactor03-03");
+        let schoolGrade = document.getElementById("grade03");
+
+        function updateSchoolGrade() {
+            const scval1 = Number(schoolInput01.value || 0);
+            const scval2 = Number(schoolInput02.value || 0);
+            const scval3 = Number(schoolInput03.value || 0);
+
+            const sc95 = scval1;
+            const sc90 = scval1 + scval2;
+            const sc85 = scval1 + scval2 + scval3;
+            let school = "";
+
+            if (sc95 >= 3) {
+                school = "S";
+            } else if (sc90 >= 3) {
+                school = "A";
+            } else if (sc85 >= 3) {
+                school = "B";
+            } else {
+                school = "C";
+            }
+
+           applyGrade(schoolGrade, school);
+        }
+
+        schoolInput01.addEventListener("input", updateSchoolGrade);
+        schoolInput02.addEventListener("input", updateSchoolGrade);
+        schoolInput03.addEventListener("input", updateSchoolGrade);
+
+        //환경 입지등급 (grade04)
+        let environmentInput01 = document.getElementById("seoulFactor04-01");
+        let environmentInput02 = document.getElementById("seoulFactor04-02");
+        let environmentGrade = document.getElementById("grade04");
+
+        function updateEnvironmentGrade() {
+            const department = Number(environmentInput01.value || 0);
+            const supermarket = Number(environmentInput02.value || 0);
+            let environment = "";
+
+            if (department >= 2) {
+                environment = "S";
+            } else if (department >= 1) {
+                environment = "A";
+            } else if (supermarket >= 1) {
+                environment = "B";
+            } else {
+                environment = "C";
+            }
+
+           applyGrade(environmentGrade, environment);
+        }
+
+        environmentInput01.addEventListener("input", updateEnvironmentGrade);
+        environmentInput02.addEventListener("input", updateEnvironmentGrade);
+
+        // 공급 입지 등급 계산
+        // 개별 입지 등급 계산 (2005년 grade05, 2006년 grade06, 2007년 grade07, 2008년 grade08)
+        function updateSupplyGrade(demandInput, supplyInput, gradeElement) {
+            const demand = Number(demandInput.value || 0);
+            const supply = Number(supplyInput.value || 0);
+
+            const degree = supply / demand;
+            let risk = "";
+
+            if (degree <= 0.5) risk = "S";
+            else if (degree <= 1) risk = "A";
+            else if (degree <= 2) risk = "B";
+            else risk = "C";
+
+            applyGrade(gradeElement, risk);
+        }
+
+        // 각 input-td 쌍 연결
+        const supplyPairs = [
+            { demandId: "seoulFactor05-01", supplyId: "seoulFactor05-02", gradeId: "grade05" },
+            { demandId: "seoulFactor06-01", supplyId: "seoulFactor06-02", gradeId: "grade06" },
+            { demandId: "seoulFactor07-01", supplyId: "seoulFactor07-02", gradeId: "grade07" },
+            { demandId: "seoulFactor08-01", supplyId: "seoulFactor08-02", gradeId: "grade08" }
+        ];
+
+        supplyPairs.forEach(item => {
+            const demandInput = document.getElementById(item.demandId);
+            const supplyInput = document.getElementById(item.supplyId);
+            const gradeEl = document.getElementById(item.gradeId);
+
+            // input 이벤트 발생 시 계산
+            demandInput.addEventListener("input", () => updateSupplyGrade(demandInput, supplyInput, gradeEl));
+            supplyInput.addEventListener("input", () => updateSupplyGrade(demandInput, supplyInput, gradeEl));
+        });
+
+        // 합산 입지 등급 계산 (grade09)
+        const totalDemandIds = ["seoulFactor05-01","seoulFactor06-01","seoulFactor07-01","seoulFactor08-01"];
+        const totalSupplyIds = ["seoulFactor05-02","seoulFactor06-02","seoulFactor07-02","seoulFactor08-02"];
+        const totalGradeEl = document.getElementById("grade09");
+
+        function updateTotalGrade() {
+            let totalDemand = 0;
+            let totalSupply = 0;
+
+            totalDemandIds.forEach(id => totalDemand += Number(document.getElementById(id).value || 0));
+            totalSupplyIds.forEach(id => totalSupply += Number(document.getElementById(id).value || 0));
+
+            const degree = totalSupply / totalDemand;
+            let risk = "";
+            if (degree <= 0.5) risk = "S";
+            else if (degree <= 1) risk = "A";
+            else if (degree <= 2) risk = "B";
+            else risk = "C";
+
+            applyGrade(totalGradeEl, risk);
+        }
+
+        // 합산용 input 이벤트 연결
+        [...totalDemandIds, ...totalSupplyIds].forEach(id => {
+            document.getElementById(id).addEventListener("input", updateTotalGrade);
+        });
+
+        
+    </script>
+
+    <style>
+        table{
+            text-align: center;
+        }
+        table td{
+            border: solid 1px #000;
+        }
+        table th{
+            border: solid 1px #000;
+        }
+        table th{
+            background:saddlebrown;
+            color: #fff;
+        }
+        .sb-th{
+            background:sandybrown;
+            color: #fff;
+        }
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+        a:hover{
+           text-decoration: underline;
+        }
+        .finger::marker {
+            content: "👉 "; /*이모지로 대체*/
+        }
+        .sb-number1::marker {
+            content: "① ";
+        }
+        .sb-number2::marker {
+            content: "② ";
+        }
+        .sb-number3::marker {
+            content: "③ ";
+        }
+        .sb-number4::marker {
+            content: "④ ";
+        }
+        .sb-number5::marker {
+            content: "⑤ ";
+        }
+        .sb-number6::marker {
+            content: "⑥ ";
+        }
+        .sb-number7::marker {
+            content: "⑦ ";
+        }
+        .sb-number8::marker {
+            content: "⑧ ";
+        }
+        .sb-number9::marker {
+            content: "⑨ ";
+        }
+        .bold{font-weight: bold;}
+        .nobullet {
+            list-style: none;
+        }
+        .code {
+            background: #eee;
+            padding: 10px 20px;
+            margin: 5px 0;
+            border-radius: 20px;
+        }
+        li{
+            padding: 2px 0;
+        }
+        .sb-title{
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .gift a:hover{
+            color: #000;
+        }
+
+        .grade-S {
+        background-color: #F44336;
+        color: white;
+        font-weight: bold;
+        }
+
+        .grade-A {
+        background-color: #FFC107;
+        color: white;
+        font-weight: bold;
+        }
+
+        .grade-B {
+        background-color: #4CAF50;
+        color: white;
+        font-weight: bold;
+        }
+
+        .grade-C {
+        background-color: #2196F3;
+        color: white;
+        font-weight: bold;
+        }
+    </style>
+</body>
+
+</html>
+
+
+
+
